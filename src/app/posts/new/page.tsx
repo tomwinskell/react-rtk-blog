@@ -1,6 +1,6 @@
 import { Form } from '@/app/ui/form/Form';
 
-const NewPost = () => {
+const NewPost = (): React.JSX.Element => {
   return <Form />;
 };
 
