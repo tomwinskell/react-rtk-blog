@@ -1,3 +1,4 @@
+'use client'
 import { Button } from '@/app/ui/components/Button';
 import { TextField } from '@/app/ui/components/TextField';
 
