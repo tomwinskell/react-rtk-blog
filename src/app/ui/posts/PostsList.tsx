@@ -1,3 +1,3 @@
-export const PostList = (params) => {
+export const PostsList = () => {
   
 }
