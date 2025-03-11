@@ -1,12 +1,12 @@
-'use client'
+'use client';
 import { Button } from '@/app/ui/components/Button';
+import { useAppSelector } from '@/lib/hooks';
+import { useParams } from 'next/navigation';
 
 export const PostDetail = (): React.JSX.Element => {
-  const { title, categories, content } = {
-    title: 'Bird Enthusiast',
-    categories: 'birds, fish',
-    content: 'I love watching birds and fish swim.',
-  };
+  const { id } = useParams();
+  const posts = useAppSelector((state) => state.posts.posts);
+  const { title, categories, content } = (posts.filter((post) => post.id === id))[0];
   const deletePost = () => {
     console.log('delete');
   };

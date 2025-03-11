@@ -1,6 +1,11 @@
+import { Post } from '@/app/types';
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
+interface PostsState {
+  posts: Post[];
+}
+
+const initialState: PostsState = {
   posts: [
     {
       id: '123e4567-e89b-12d3-a456-426614174001',
@@ -35,7 +40,7 @@ const initialState = {
   ],
 };
 
-export const postsSlice = createSlice({
+const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
@@ -49,3 +54,5 @@ export const postsSlice = createSlice({
 });
 
 export const { addPost, deletePost } = postsSlice.actions;
+
+export { postsSlice };
