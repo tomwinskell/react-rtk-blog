@@ -29,8 +29,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <PrimaryNavigation />
-        <StoreProvider>{children}</StoreProvider>
+        <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow">
+          <PrimaryNavigation />
+          <StoreProvider>{children}</StoreProvider>
+        </div>
       </body>
     </html>
   );

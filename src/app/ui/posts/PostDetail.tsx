@@ -11,14 +11,14 @@ export const PostDetail = (): React.JSX.Element => {
   const { id } = useParams();
   const posts = useAppSelector((state) => state.posts.posts);
 
-  const getPost = (id: string, posts: Post[]): Post | undefined => {
-    return posts.find((post) => post.id === id);
-  };
+  const getPost = (id: string, posts: Post[]): Post | undefined =>
+    posts.find((post) => post.id === id);
 
   const foundPost = getPost(id as string, posts);
   if (!foundPost) {
-    return <div>No post found.</div>;
+    return <div className="text-center text-gray-500">No post found.</div>;
   }
+
   const { title, categories, content } = foundPost;
 
   const handleDelete = (id: string) => {
@@ -29,9 +29,9 @@ export const PostDetail = (): React.JSX.Element => {
 
   return (
     <div>
-      <h1>{title}</h1>
-      <p>{categories}</p>
-      <p>{content}</p>
+      <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
+      <p className="text-gray-500 text-sm mt-2">Categories: {categories}</p>
+      <p className="mt-4 text-gray-700">{content}</p>
       <Button type="button" handleClick={handleDelete} id={id as string}>
         Delete Post
       </Button>

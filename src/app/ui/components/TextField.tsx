@@ -10,9 +10,14 @@ export const TextField = ({
 }: TextFieldProps): React.JSX.Element => {
   return (
     <div>
-      <label>{props.placeholder}
-        {type === 'text' && <input {...props} />}
-        {type === 'textarea' && <textarea {...props} />}
+      <label>
+        {props.placeholder}
+        {type === 'text' && (
+          <input className="w-full p-2 border rounded" {...props} />
+        )}
+        {type === 'textarea' && (
+          <textarea className="w-full p-2 border rounded h-32" {...props} />
+        )}
       </label>
     </div>
   );
