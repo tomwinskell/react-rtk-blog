@@ -6,14 +6,14 @@ type TextFieldProps = {
 
 export const TextField = ({
   type = 'text',
-  name,
   ...props
 }: TextFieldProps): React.JSX.Element => {
   return (
     <div>
-      <label htmlFor={name}></label>
-      {type === 'text' && <input {...props} />}
-      {type === 'textarea' && <textarea {...props} />}
+      <label>{props.placeholder}
+        {type === 'text' && <input {...props} />}
+        {type === 'textarea' && <textarea {...props} />}
+      </label>
     </div>
   );
 };

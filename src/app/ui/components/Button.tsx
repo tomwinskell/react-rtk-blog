@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from 'react';
 
 type ButtonProps = {
   type: ButtonHTMLAttributes<HTMLButtonElement>['type'];
-  handleClick: () => void;
+  handleClick?: () => void;
   children: React.ReactNode;
 };
 
@@ -12,8 +12,14 @@ export const Button = ({
   children,
 }: ButtonProps): React.JSX.Element => {
   return (
-    <button type={type} onClick={() => handleClick()}>
-      {children}
-    </button>
+    <>
+      {type === 'submit' ? (
+        <button type={type}>{children}</button>
+      ) : (
+        <button type={type} onClick={() => handleClick}>
+          {children}
+        </button>
+      )}
+    </>
   );
 };
