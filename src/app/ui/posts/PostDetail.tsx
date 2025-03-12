@@ -1,10 +1,13 @@
 'use client';
 import { Post } from '@/app/types';
 import { Button } from '@/app/ui/components/Button';
-import { useAppSelector } from '@/lib/hooks';
-import { useParams } from 'next/navigation';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
+import { useParams, useRouter } from 'next/navigation';
+import { deletePost } from '@/lib/slices/posts';
 
 export const PostDetail = (): React.JSX.Element => {
+  const dispatch = useAppDispatch();
+  const router = useRouter();
   const { id } = useParams();
   const posts = useAppSelector((state) => state.posts.posts);
 
@@ -18,15 +21,18 @@ export const PostDetail = (): React.JSX.Element => {
   }
   const { title, categories, content } = foundPost;
 
-  const deletePost = () => {
-    console.log('delete');
+  const handleDelete = (id: string) => {
+    console.log(id);
+    dispatch(deletePost(id));
+    router.push('/posts');
   };
+
   return (
     <div>
       <h1>{title}</h1>
       <p>{categories}</p>
       <p>{content}</p>
-      <Button type="button" handleClick={deletePost}>
+      <Button type="button" handleClick={handleDelete} id={id as string}>
         Delete Post
       </Button>
     </div>
