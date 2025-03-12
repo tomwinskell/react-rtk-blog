@@ -1,3 +1,9 @@
+This is a project for me to learn how Redux toolkit works. It uses Redux toolkit to store posts in global state, accessible across the application. Adding posts and deleting posts is executed using Redux toolkit dispatch function.
+
+Created boilerplate code for Redux toolkit using the Redux toolkit docs. TypeScript and TailwindCSS are also used in the project.
+
+[Setup Redux toolkit with Next.js](https://redux-toolkit.js.org/usage/nextjs).
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
